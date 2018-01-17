@@ -7,7 +7,7 @@ using System;
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace Sitecore.Form.Core
+namespace Sitecore.Support.Form.Core
 {
   public class PublishItemExtension
   {
@@ -32,8 +32,7 @@ namespace Sitecore.Form.Core
             Item item = sourceDatabase.GetItem(current.ToString());
             if (item != null && item.TemplateID == IDs.FormTemplateID)
             {
-              Database database = Database.GetDatabase("web");
-              this.PublishItem(item, sourceDatabase, database, PublishMode.SingleItem);
+              this.PublishItem(item, sourceDatabase, publisher.Options.TargetDatabase, PublishMode.SingleItem);
             }
           }
         }
